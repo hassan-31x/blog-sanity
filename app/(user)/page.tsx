@@ -13,8 +13,10 @@ const query = groq`
     categories[]->
   } | order(_createdAt desc)
 `
+export const revalidate = 60
 
 export default async function Home() {
+
   const { isEnabled } = draftMode()
 
   if (isEnabled) {
@@ -30,7 +32,6 @@ export default async function Home() {
   }
 
   const posts = await client.fetch(query)
-
 
   return <BlogList posts={posts} />
 }

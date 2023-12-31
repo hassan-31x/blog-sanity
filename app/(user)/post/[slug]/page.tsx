@@ -4,7 +4,7 @@ import { client } from "@/sanity/lib/client";
 import { groq } from "next-sanity";
 import { urlForImage } from "@/sanity/lib/image";
 
-import { PortableText } from '@portabletext/react'
+import { PortableText } from "@portabletext/react";
 import { RichTextComponents } from "@/components/RichTextComponents";
 
 type Props = {
@@ -12,6 +12,24 @@ type Props = {
     slug: string;
   };
 };
+
+export const revalidate = 60;
+
+export async function generateStaticParams() {
+  const query = groq`
+  *[_type=='post']
+    {
+      slug
+    }
+  `
+
+  const slugs: Post[] = await client.fetch(query)
+  const slugRoutes = slugs.map(slug => slug.slug.current)
+
+  return slugRoutes.map(blogSlug => ({
+    slug: blogSlug
+  }))
+}
 
 const PostPage = async ({ params: { slug } }: Props) => {
   const query = groq`
@@ -27,7 +45,7 @@ const PostPage = async ({ params: { slug } }: Props) => {
 
   return (
     <article className="px-10 pb-28">
-      <section className="space-y-2 border border-[#F7AB0A] text-white">
+      <section className="space-y-2 border border-[#F7AB0A] text-white mb-8">
         <div className="relative min-h-56 flex flex-col md:flex-row justify-between">
           <div className="absolute top-0 w-full h-full opacity-10 blur-sm p-10">
             <Image
