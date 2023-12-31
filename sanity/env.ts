@@ -11,7 +11,7 @@ export const projectId = assertValue(
   'Missing environment variable: NEXT_PUBLIC_SANITY_PROJECT_ID'
 )
 
-export const useCdn = false
+export const useCdn = false // Set this to false if you want to ensure fresh data: https://www.sanity.io/help/js-client-cdn-configuration
 
 function assertValue<T>(v: T | undefined, errorMessage: string): T {
   if (v === undefined) {

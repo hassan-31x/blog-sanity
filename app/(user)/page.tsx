@@ -1,7 +1,14 @@
-import Image from 'next/image'
+import { draftMode } from "next/headers"
 
 export default function Home() {
+  const { isEnabled } = draftMode()
+
+  if (isEnabled) {
+    return <div>Draft Mode</div>
+  }
+
+
   return (
-    <div></div>
+    <div>Not in Draft Mode</div>
   )
 }

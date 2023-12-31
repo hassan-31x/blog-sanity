@@ -6,5 +6,5 @@ export const client = createClient({
   apiVersion,
   dataset,
   projectId,
-  useCdn,
+  useCdn, //false if you want to ensure fresh data: https://www.sanity.io/help/js-client-cdn-configuration
 })
