@@ -4,6 +4,12 @@ import "../globals.css";
 import Header from "@/components/Header";
 import Banner from "@/components/Banner";
 
+import dynamic from "next/dynamic";
+import { draftMode } from "next/headers";
+import { token } from "@/sanity/lib/fetch";
+
+const PreviewProvider = dynamic(() => import("@/components/PreviewProvider"));
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -21,7 +27,11 @@ export default function RootLayout({
       <body className={`${inter.className} max-w-7xl mx-auto`}>
         <Header />
         <Banner />
-        {children}
+        {draftMode().isEnabled ? (
+          <PreviewProvider token={token}>{children}</PreviewProvider>
+        ) : (
+          children
+        )}
       </body>
     </html>
   );

@@ -1,17 +1,8 @@
+'use client'
 
-import { usePreview } from "@/sanity/lib/preview"
-import BlogList from "./BlogList"
-import { adminClient } from "@/sanity/lib/client"
+import dynamic from 'next/dynamic'
 
-type Props = {
-    query: string
-}
+// Re-exported components using next/dynamic ensures they're not bundled
+// and sent to the browser unless actually used, with draftMode().enabled.
 
-const PreviewBlogList = async ({ query }: Props) => {
-    const posts = await adminClient.fetch(query)
-    console.log("🚀 ~ file: PreviewBlogList.tsx:12 ~ PreviewBlogList ~ posts:", posts)
-    
-  return <BlogList posts={posts} />
-}
-
-export default PreviewBlogList
+export default dynamic(() => import('./BlogList'))

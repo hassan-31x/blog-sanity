@@ -9,11 +9,3 @@ export const client = createClient({
   useCdn, //? false if you want to ensure fresh data: https://www.sanity.io/help/js-client-cdn-configuration
   perspective: 'published' //? prevent draft changes from being accidentally published
 })
-
-export const adminClient = createClient({
-  apiVersion,
-  dataset,
-  projectId,
-  useCdn, //? false if you want to ensure fresh data: https://www.sanity.io/help/js-client-cdn-configuration
-  perspective: 'previewDrafts'
-})

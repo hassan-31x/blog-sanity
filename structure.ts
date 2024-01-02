@@ -6,6 +6,7 @@ export const getDefaultDocumentNode: DefaultDocumentNodeResolver = (
   { schemaType }
 ) => {
   if (schemaType === "post") {
+    console.log(S)
     return S.document().views([
       S.view.form(),
 
