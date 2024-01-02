@@ -5,7 +5,7 @@ const Banner = () => {
         <h1 className="text-7xl">Daily Blog</h1>
         <h2 className="mt-5 md:mt-0">
           Welcome to{" "}
-          <span className="underline decoration-4 decoration-[#FCAB01]">
+          <span className="underline decoration-4 decoration-[#8178E6]">
             Every Developers
           </span>{" "}
           favourite blog in the Devosphere
