@@ -1,6 +1,9 @@
-import { urlForImage } from "@/sanity/lib/image";
+//? further customization for rich text from Sanity
+
 import Image from "next/image";
 import Link from "next/link";
+
+import { urlForImage } from "@/sanity/lib/image";
 
 export const RichTextComponents = {
   types: {

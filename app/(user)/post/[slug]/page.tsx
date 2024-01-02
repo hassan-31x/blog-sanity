@@ -1,7 +1,7 @@
 import Image from "next/image";
 
-import { client } from "@/sanity/lib/client";
 import { groq } from "next-sanity";
+import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
 
 import { PortableText } from "@portabletext/react";
@@ -15,6 +15,7 @@ type Props = {
 
 export const revalidate = 60;
 
+//? generate all dynamic pages at build time for faster performance
 export async function generateStaticParams() {
   const query = groq`
   *[_type=='post']
@@ -52,7 +53,7 @@ const PostPage = async ({ params: { slug } }: Props) => {
               <Image
                 className="object-cover object-center mx-auto"
                 src={urlForImage(post?.mainImage).url()}
-                alt={post?.author?.name || 'Blog Image'}
+                alt={post?.author?.name || "Blog Image"}
                 fill
               />
             )}
@@ -76,7 +77,7 @@ const PostPage = async ({ params: { slug } }: Props) => {
                   <Image
                     className="rounded-full"
                     src={urlForImage(post?.author?.image).url()}
-                    alt={post?.author?.name || 'Author Image'}
+                    alt={post?.author?.name || "Author Image"}
                     height={40}
                     width={40}
                   />
@@ -104,7 +105,7 @@ const PostPage = async ({ params: { slug } }: Props) => {
           </section>
         </div>
       </section>
-
+      //? further customize the rich text from sanity by passing in the components & adding custom styles to specific elements & tags
       <PortableText value={post?.body} components={RichTextComponents} />
     </article>
   );

@@ -1,5 +1,7 @@
 'use client'
 
+//? DRAFT MODE DOCS: https://github.com/sanity-io/next-sanity/blob/main/PREVIEW-app-router.md
+
 import dynamic from 'next/dynamic'
 import { suspend } from 'suspend-react'
 

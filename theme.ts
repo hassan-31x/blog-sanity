@@ -1,4 +1,4 @@
-//theming currently depreciated
+//? theming currently depreciated, but can be used to style the sanity studio by customizing it with our own theme of project
 
 import { buildLegacyTheme } from "sanity";
 

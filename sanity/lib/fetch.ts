@@ -1,3 +1,5 @@
+//? for fetching unpublished data from sanity
+
 import 'server-only'
 
 import type { QueryParams } from '@sanity/client'
@@ -27,7 +29,7 @@ export async function sanityFetch<QueryResponse>({
   return client.fetch<QueryResponse>(query, params, {
     ...(isDraftMode && {
       token,
-      perspective: 'previewDrafts',
+      perspective: 'previewDrafts', //? for fetching unpublished data from sanity
     }),
     next: {
       revalidate: isDraftMode ? 0 : false,

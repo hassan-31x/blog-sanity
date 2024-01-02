@@ -1,3 +1,4 @@
+//? types in .d.ts file will be considered a global type, so we don't need to import it in every file & can be used directly
 
 type Base = {
     _createdAt: string;

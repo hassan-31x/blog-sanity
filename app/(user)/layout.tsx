@@ -6,9 +6,10 @@ import Banner from "@/components/Banner";
 
 import dynamic from "next/dynamic";
 import { draftMode } from "next/headers";
+
 import { token } from "@/sanity/lib/fetch";
 
-const PreviewProvider = dynamic(() => import("@/components/PreviewProvider"));
+const PreviewProvider = dynamic(() => import("@/components/PreviewProvider")); //? dynamic import to avoid SSR & avoid load
 
 const inter = Inter({ subsets: ["latin"] });
 

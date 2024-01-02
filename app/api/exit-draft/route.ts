@@ -1,10 +1,10 @@
-import { draftMode } from 'next/headers';
-import { redirect } from 'next/navigation';
+import { draftMode } from "next/headers";
+import { redirect } from "next/navigation";
 
 export async function GET(request: Request) {
-    draftMode().disable();
+  draftMode().disable();
 
-    const { origin } = new URL(request.url)
-  
-    redirect(origin)
+  const { origin } = new URL(request.url);
+
+  redirect(origin);
 }

@@ -2,13 +2,13 @@
  * This configuration is used to for the Sanity Studio that’s mounted on the `\app\studio\[[...index]]\page.jsx` route
  */
 
-import {visionTool} from '@sanity/vision'
-import {defineConfig} from 'sanity'
-import {deskTool} from 'sanity/desk'
+import { visionTool } from '@sanity/vision'
+import { defineConfig } from 'sanity'
+import { deskTool } from 'sanity/desk'
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
-import {apiVersion, dataset, projectId} from './sanity/env'
-import {schema} from './sanity/schema'
+import { apiVersion, dataset, projectId } from './sanity/env'
+import { schema } from './sanity/schema'
 import { myTheme } from './theme'
 import { getDefaultDocumentNode } from './structure'
 
@@ -26,5 +26,5 @@ export default defineConfig({
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({defaultApiVersion: apiVersion}),
   ],
-  theme: myTheme
+  theme: myTheme //? for customizing the theme of sanity studio
 })
